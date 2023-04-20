@@ -1,0 +1,13 @@
+use aead::OsRng;
+
+let key = ChaCha20Blake3::generate_key(&mut OsRng);
+
+let nonce = ChaCha20Blake3::generate_nonce(&mut OsRng);
+
+let mut f = ChaCha20Blake3::new(&key);
+
+let mut buffer = Vec::from("hello");
+
+let tag  = f.encrypt_in_place_detached(&nonce,"associated_data".as_bytes(),&mut buffer).unwrap();
+
+f.decrypt_in_place_detached(&nonce,"associated_data".as_bytes(),&mut buffer,&tag).unwrap();
