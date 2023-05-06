@@ -1,6 +1,8 @@
 # ChaChaBlake3
 **No security testing has been performed.**
 
+*this is the demonstration for me. I'm not going to fix bugs.*
+
 ChaCha + Poly1305 is replaced by ChaCha + BLAKE3.
 
 Rust Crypto and BLAKE3 backend.
